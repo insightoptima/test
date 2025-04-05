@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PredictX - AI-Powered Travel & Expense Analytics</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Splide.js (Carousel) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+ <body>
+  <!-- Loader -->
+  <div class="loader-wrapper">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3">
+    <div class="container">
+      <a class="navbar-brand me-5" href="#">
+        <div class="logo-container">
+          <img src="images/logo10-VF (2).png" alt="PredictX Logo" class="logo-img">
+        </div>
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item dropdown me-3">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="useCasesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-lightbulb me-2"></i> Use Cases
+            </a>
+            <ul class="dropdown-menu glass-card border-0 shadow-lg p-3" aria-labelledby="useCasesDropdown">
+              <li>
+                <a class="dropdown-item px-4 py-3 rounded-3 d-flex align-items-center" href="#">
+                  <i class="fas fa-plane me-3 text-primary"></i>
+                  <div>
+                    <h6 class="mb-0">Air Sourcing</h6>
+                    <small class="text-muted">Optimize air travel procurement</small>
+                  </div>
+                </a>
+              </li>
+              <li><hr class="dropdown-divider mx-4 my-2"></li>
+              <li>
+                <a class="dropdown-item px-4 py-3 rounded-3 d-flex align-items-center" href="#">
+                  <i class="fas fa-user-tie me-3 text-primary"></i>
+                  <div>
+                    <h6 class="mb-0">Executive Engagement</h6>
+                    <small class="text-muted">Specialized executive reporting</small>
+                  </div>
+                </a>
+              </li>
+              <li><hr class="dropdown-divider mx-4 my-2"></li>
+              <li>
+                <a class="dropdown-item px-4 py-3 rounded-3 d-flex align-items-center" href="#">
+                  <i class="fas fa-search-dollar me-3 text-primary"></i>
+                  <div>
+                    <h6 class="mb-0">Expense Audit</h6>
+                    <small class="text-muted">Automated compliance checks</small>
+                  </div>
+                </a>
+              </li>
+              <li><hr class="dropdown-divider mx-4 my-2"></li>
+              <li>
+                <a class="dropdown-item px-4 py-3 rounded-3 d-flex align-items-center" href="#">
+                  <i class="fas fa-chart-network me-3 text-primary"></i>
+                  <div>
+                    <h6 class="mb-0">Total Trip Analytics</h6>
+                    <small class="text-muted">End-to-end trip insights</small>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </li>
+          
+          <li class="nav-item dropdown me-3">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="solutionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-cubes me-2"></i> Solutions
+            </a>
+            <ul class="dropdown-menu glass-card border-0 shadow-lg p-3" aria-labelledby="solutionsDropdown">
+              <li>
+                <a class="dropdown-item px-4 py-3 rounded-3" href="#">
+                  <h6 class="mb-1">Sourcing</h6>
+                  <small class="text-muted">AI-powered procurement tools</small>
+                </a>
+              </li>
+              <li><hr class="dropdown-divider mx-4 my-2"></li>
+              <li>
+                <a class="dropdown-item px-4 py-3 rounded-3" href="#">
+                  <h6 class="mb-1">Risk & Compliance</h6>
+                  <small class="text-muted">Policy enforcement automation</small>
+                </a>
+              </li>
+              <li><hr class="dropdown-divider mx-4 my-2"></li>
+              <li>
+                <a class="dropdown-item px-4 py-3 rounded-3" href="#">
+                  <h6 class="mb-1">Operations</h6>
+                  <small class="text-muted">Travel program management</small>
+                </a>
+              </li>
+              <li><hr class="dropdown-divider mx-4 my-2"></li>
+              <li>
+                <a class="dropdown-item px-4 py-3 rounded-3" href="#">
+                  <h6 class="mb-1">Engagement</h6>
+                  <small class="text-muted">Traveler experience tools</small>
+                </a>
+              </li>
+            </ul>
+          </li>
+          
+          <li class="nav-item me-3">
+            <a class="nav-link d-flex align-items-center" href="#">
+              <i class="fas fa-book me-2"></i> Resources
+            </a>
+          </li>
+          <li class="nav-item me-3">
+            <a class="nav-link d-flex align-items-center" href="#">
+              <i class="fas fa-info-circle me-2"></i> About Us
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="#">
+              <i class="fas fa-envelope me-2"></i> Contact
+            </a>
+          </li>
+        </ul>
+        
+        <div class="d-flex align-items-center">
+          <a href="#" class="btn btn-primary btn-lg glow-on-hover px-4 me-3 d-flex align-items-center">
+            <i class="fas fa-play-circle me-2"></i> Get Demo
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section text-white position-relative">
+    <div class="hero-bg-pattern"></div>
+    <div class="container position-relative">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 text-center" data-aos="fade-up">
+          <h1 class="display-3 fw-bold mb-4">
+            <span class="animated-gradient-text d-inline-block">AI-Powered Intelligence</span><br>
+            <span class="text-white">for</span> <span class="animated-gradient-text d-inline-block">Travel & Expense Analytics</span>
+          </h1>
+          <p class="lead mb-5 opacity-75 mx-auto" style="max-width: 700px;">Transform your travel and expense management with predictive insights and automated analytics powered by artificial intelligence.</p>
+          <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+            <a href="#" class="btn btn-light btn-lg px-5 glow-on-hover">Get Started</a>
+            <a href="#" class="btn btn-outline-light btn-lg video-modal-btn" data-bs-toggle="modal" data-bs-target="#videoModal">
+              Watch Demo
+              <span class="play-icon ms-2 bg-primary rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 24px; height: 24px;">
+                <i class="fas fa-play text-white fs-6"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!--<div class="mt-8 floating-element" data-aos="fade-up" data-aos-delay="300">
+        <img src="https://cdn.prod.website-files.com/665a319e95c1b4aa88d417f7/665df77769bd52090741d32c_img.webp" alt="PredictX Dashboard" class="img-fluid rounded-4 shadow-lg" style="max-height: 500px; border: 1px solid rgba(255,255,255,0.1);">
+      </div>-->
+    </div>
+  </section>
+
+  <!-- Video Modal -->
+  <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content glass-card border-0">
+        <div class="modal-body p-0 ratio ratio-16x9">
+          <iframe id="videoFrame" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <section class="py-8 bg-light">
+    <div class="container">
+      <div class="text-center mb-7" data-aos="fade-up">
+        <h2 class="display-5 fw-bold mb-3">Powerful Features</h2>
+        <p class="lead text-muted mx-auto" style="max-width: 700px;">Discover how PredictX can transform your travel and expense management</p>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100 border-0 shadow-sm card-3d">
+            <div class="card-body p-4 text-center">
+              <div class="feature-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <h3 class="h4 mb-3">Advanced Analytics</h3>
+              <p class="text-muted">Gain deep insights into your travel spend with our powerful AI-driven analytics platform.</p>
+              <a href="#" class="btn btn-link ps-0">Learn more <i class="fas fa-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100 border-0 shadow-sm card-3d">
+            <div class="card-body p-4 text-center">
+              <div class="feature-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <h3 class="h4 mb-3">AI Predictions</h3>
+              <p class="text-muted">Forecast travel spend and optimize your budget with our machine learning models.</p>
+              <a href="#" class="btn btn-link ps-0">Learn more <i class="fas fa-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="card h-100 border-0 shadow-sm card-3d">
+            <div class="card-body p-4 text-center">
+              <div class="feature-icon">
+                <i class="fas fa-leaf"></i>
+              </div>
+              <h3 class="h4 mb-3">Sustainability</h3>
+              <p class="text-muted">Track and reduce your carbon footprint with our sustainability dashboard.</p>
+              <a href="#" class="btn btn-link ps-0">Learn more <i class="fas fa-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Animated Stats Section -->
+  <section class="stats-section py-7 text-white position-relative overflow-hidden">
+    <div class="container position-relative">
+      <div class="row g-4 text-center">
+        <div class="col-md-3 col-6" data-aos="fade-up">
+          <div class="display-4 fw-bold mb-2" id="stat1">0</div>
+          <p class="text-white-50 mb-0">Happy Clients</p>
+        </div>
+        <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="display-4 fw-bold mb-2" id="stat2">0</div>
+          <p class="text-white-50 mb-0">Data Sources</p>
+        </div>
+        <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="display-4 fw-bold mb-2" id="stat3">0</div>
+          <p class="text-white-50 mb-0">AI Predictions</p>
+        </div>
+        <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="display-4 fw-bold mb-2" id="stat4">0%</div>
+          <p class="text-white-50 mb-0">Cost Savings</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Demo Section -->
+  <section class="py-8">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+          <h2 class="display-5 fw-bold mb-4">Interactive Dashboard Demo</h2>
+          <p class="lead text-muted mb-4">Explore our powerful analytics dashboard with this interactive preview.</p>
+          <ul class="list-unstyled mb-4">
+            <li class="mb-3 d-flex">
+              <i class="fas fa-check-circle text-primary mt-1 me-3"></i>
+              <span>Real-time data visualization</span>
+            </li>
+            <li class="mb-3 d-flex">
+              <i class="fas fa-check-circle text-primary mt-1 me-3"></i>
+              <span>Customizable reporting</span>
+            </li>
+            <li class="mb-3 d-flex">
+              <i class="fas fa-check-circle text-primary mt-1 me-3"></i>
+              <span>Drill-down capabilities</span>
+            </li>
+          </ul>
+          <a href="#" class="btn btn-primary btn-lg">Request Full Demo</a>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="position-relative rounded-4 overflow-hidden shadow-lg">
+            <img src="https://cdn.prod.website-files.com/665a319e95c1b4aa88d417f7/665df77769bd52090741d32c_img.webp" alt="Dashboard Preview" class="img-fluid">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+              <a href="#" class="btn btn-primary btn-lg rounded-circle p-3 video-modal-btn" data-bs-toggle="modal" data-bs-target="#dashboardModal">
+                <i class="fas fa-play fs-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dashboard Video Modal -->
+  <div class="modal fade" id="dashboardModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content glass-card border-0">
+        <div class="modal-body p-0 ratio ratio-16x9">
+          <iframe id="dashboardVideo" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials Carousel -->
+  <section class="py-8 bg-light">
+    <div class="container">
+      <div class="text-center mb-7" data-aos="fade-up">
+        <h2 class="display-5 fw-bold mb-3">Trusted by Industry Leaders</h2>
+        <p class="lead text-muted mx-auto" style="max-width: 700px;">Hear what our clients say about PredictX</p>
+      </div>
+      
+      <div class="splide" data-aos="fade-up" data-aos-delay="100">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <div class="card h-100 border-0 shadow-sm card-3d">
+                <div class="card-body p-5">
+                  <div class="mb-4">
+                    <i class="fas fa-quote-left fs-2 text-primary opacity-25"></i>
+                  </div>
+                  <p class="lead mb-4">"PredictX has transformed our travel expense management, saving us over 20% in costs within the first quarter."</p>
+                  <div class="d-flex align-items-center">
+                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson" class="rounded-circle me-3" width="50">
+                    <div>
+                      <h6 class="mb-0">Sarah Johnson</h6>
+                      <small class="text-muted">CFO, TechCorp</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="card h-100 border-0 shadow-sm card-3d">
+                <div class="card-body p-5">
+                  <div class="mb-4">
+                    <i class="fas fa-quote-left fs-2 text-primary opacity-25"></i>
+                  </div>
+                  <p class="lead mb-4">"The AI-powered insights have been game-changing for our procurement team's decision-making process."</p>
+                  <div class="d-flex align-items-center">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="rounded-circle me-3" width="50">
+                    <div>
+                      <h6 class="mb-0">Michael Chen</h6>
+                      <small class="text-muted">Head of Travel, GlobalBank</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="card h-100 border-0 shadow-sm card-3d">
+                <div class="card-body p-5">
+                  <div class="mb-4">
+                    <i class="fas fa-quote-left fs-2 text-primary opacity-25"></i>
+                  </div>
+                  <p class="lead mb-4">"Our sustainability metrics have never been clearer thanks to PredictX's carbon tracking features."</p>
+                  <div class="d-flex align-items-center">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emma Rodriguez" class="rounded-circle me-3" width="50">
+                    <div>
+                      <h6 class="mb-0">Emma Rodriguez</h6>
+                      <small class="text-muted">COO, PharmaGlobal</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-8 bg-dark text-white position-relative overflow-hidden">
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-10"></div>
+    <div class="container position-relative">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center" data-aos="zoom-in">
+          <h2 class="display-5 fw-bold mb-4">Ready to Transform Your Travel Program?</h2>
+          <p class="lead mb-5 opacity-75">Join hundreds of companies already benefiting from PredictX's AI-powered analytics platform.</p>
+          <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+            <a href="#" class="btn btn-light btn-lg px-5 glow-on-hover">Get Started</a>
+            <a href="#" class="btn btn-outline-light btn-lg">Contact Sales</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-8">
+          <h2 class="footer-heading mb-4">Transform your travel program with PredictX</h2>
+          <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
+            <a href="#" class="btn btn-primary px-4 py-2 pulse">Join us</a>
+            <a href="#" class="btn btn-outline-light px-4 py-2">Get in touch</a>
+          </div>
+          
+          <p class="text-gray-300 mb-4">Stay updated & join our community at PredictX.</p>
+          
+          <form class="newsletter-form d-flex mb-5">
+            <input type="email" class="form-control rounded-start" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-primary rounded-end">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
+          <img src="images/Logo VF.png" alt="PredictX Logo" class="img-fluid" style="height: 40px;">
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      
+      <hr class="my-4 bg-gray-700">
+      
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <p class="text-gray-400 mb-0">© 2025 PredictX Inc. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <a href="#" class="footer-link me-3">Privacy Policy</a>
+          <a href="#" class="footer-link me-3">Terms of Service</a>
+          <a href="#" class="footer-link">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Splide.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <!-- Custom JS -->
+  <script>
+    // Initialize AOS animation
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 100
+    });
+
+    // Initialize Splide carousel
+    new Splide('.splide', {
+      type: 'loop',
+      perPage: 1,
+      perMove: 1,
+      gap: '1.5rem',
+      pagination: true,
+      arrows: true,
+      breakpoints: {
+        768: {
+          perPage: 1
+        }
+      }
+    }).mount();
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+      
+      // Back to top button
+      const backToTopButton = document.getElementById('backToTop');
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('show');
+      } else {
+        backToTopButton.classList.remove('show');
+      }
+    });
+    
+    // Back to top button click
+    document.getElementById('backToTop').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Animate numbers in stats section
+    function animateValue(id, start, end, duration, suffix = '') {
+      const obj = document.getElementById(id);
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        obj.innerHTML = Math.floor(progress * (end - start) + start) + suffix;
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+      window.requestAnimationFrame(step);
+    }
+
+    // Animate stats when section is in view
+    const statsSection = document.querySelector('.stats-section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateValue('stat1', 0, 250, 2000, '+');
+          animateValue('stat2', 0, 200, 2000, '+');
+          animateValue('stat3', 0, 50000, 2000, '+');
+          animateValue('stat4', 0, 25, 2000, '%');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+
+    // Video modal handling
+    const videoModal = document.getElementById('videoModal');
+    if (videoModal) {
+      videoModal.addEventListener('show.bs.modal', function () {
+        document.getElementById('videoFrame').src += '&autoplay=1';
+      });
+      
+      videoModal.addEventListener('hide.bs.modal', function () {
+        document.getElementById('videoFrame').src = document.getElementById('videoFrame').src.replace('&autoplay=1', '');
+      });
+    }
+
+    const dashboardModal = document.getElementById('dashboardModal');
+    if (dashboardModal) {
+      dashboardModal.addEventListener('show.bs.modal', function () {
+        document.getElementById('dashboardVideo').src += '&autoplay=1';
+      });
+      
+      dashboardModal.addEventListener('hide.bs.modal', function () {
+        document.getElementById('dashboardVideo').src = document.getElementById('dashboardVideo').src.replace('&autoplay=1', '');
+      });
+    }
+
+    // Hide loader when page is loaded
+    window.addEventListener('load', function() {
+      const loader = document.querySelector('.loader-wrapper');
+      loader.style.opacity = '0';
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 500);
+    });
+  </script>
+</body>
+</html>
